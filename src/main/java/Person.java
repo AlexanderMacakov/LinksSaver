@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person implements ActionUser {
 
 
@@ -5,6 +8,7 @@ public class Person implements ActionUser {
     private String lastName;
     private String eMail;
     private String password;
+    private List <Link> personListLink = new ArrayList();
 
     private Person() {
 
