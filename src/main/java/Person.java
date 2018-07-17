@@ -1,3 +1,5 @@
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,24 +25,42 @@ public class Person implements ActionUser {
 
     }
 
-
     @Override
     public void read() {
 
     }
 
     @Override
-    public void addLink() {
+    @Autowired
+    public void addLink(Link link) {
+        personListLink.add(link);
+    }
+
+    @Override
+    @Autowired
+    public void delLink(String tittle) {
 
     }
 
     @Override
-    public void delLink() {
+    @Autowired
+    public void editLink(Link link) {
 
     }
 
-    @Override
-    public void editLink() {
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

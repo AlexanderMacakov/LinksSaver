@@ -1,6 +1,6 @@
 public interface ActionUser {
     void read();
-    void addLink();
-    void delLink();
-    void editLink();
+    void addLink(Link link);
+    void delLink(String tittle);
+    void editLink(Link link);
 }

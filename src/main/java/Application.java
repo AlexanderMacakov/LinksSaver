@@ -1,14 +1,17 @@
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import java.util.ArrayList;
 
-
-@ComponentScan
-@EnableAutoConfiguration
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        ArrayList<Person> personArrayList = new ArrayList<>();
+        personArrayList = new ParseXMLUser().runParse();
+
+        for (Person p: personArrayList){
+            System.out.println(p.getLastName());
+            System.out.println(p.getFirstName());
+            System.out.println(p.geteMail());
+            System.out.println(p.getPassword());
+        }
     }
 
 }

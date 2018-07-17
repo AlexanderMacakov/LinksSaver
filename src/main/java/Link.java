@@ -26,5 +26,4 @@ public class Link {
     public String getUrl() {
         return url;
     }
-
 }
