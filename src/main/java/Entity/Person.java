@@ -32,19 +32,20 @@ public class Person implements ActionUser {
     }
 
     @Override
-    @Autowired
     public void addLink(Link link) {
         personListLink.add(link);
     }
 
     @Override
-    @Autowired
     public void delLink(String tittle) {
-
+        for (Link delLink: personListLink) {
+            if (tittle.equals(delLink.getTittle())) {
+                personListLink.remove(delLink);
+            }
+        }
     }
 
     @Override
-    @Autowired
     public void editLink(Link link) {
 
     }
