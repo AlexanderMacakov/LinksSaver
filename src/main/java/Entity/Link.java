@@ -1,3 +1,5 @@
+package Entity;
+
 public class Link {
 
     private String tittle;

@@ -1,17 +1,18 @@
+import Entity.Person;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Application {
 
-    public static void main(String[] args) {
-        ArrayList<Person> personArrayList = new ArrayList<>();
-        personArrayList = new ParseXMLUser().runParse();
+    static ArrayList<Person> listPerson = new ParseXMLUser().runParse();
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        for (Person p: personArrayList){
-            System.out.println(p.getLastName());
-            System.out.println(p.getFirstName());
-            System.out.println(p.geteMail());
-            System.out.println(p.getPassword());
-        }
+    public static void main(String[] args) {
+        TextMassage.Tittle();
+
+
     }
 
 }
