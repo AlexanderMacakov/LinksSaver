@@ -14,15 +14,12 @@ public class Application {
         Person user = null;
 
         TextMassage.tittle();
-        TextMassage.dialogLogin();
-
-        String login = bufferedReader.readLine();
-        String password = bufferedReader.readLine();
+        InputData inputData = new InputData();
 
         Verefication verefication = new Verefication();
-        if (verefication.checkPerson(login, password)) {
-            user = verefication.getFoundPerson();
-        }
+        verefication.checkPerson(inputData.getLogin(), inputData.getPassword());
+        user = verefication.getFoundPerson();
+        System.out.println(user.toString());
 
     }
 

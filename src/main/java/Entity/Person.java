@@ -65,4 +65,13 @@ public class Person implements ActionUser {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", eMail='" + eMail + '\'' +
+                '}';
+    }
 }

@@ -13,7 +13,7 @@ public class Verefication {
     private static Logger log = Logger.getLogger(Verefication.class.getName());
 
     private Map<Person, List<Link>> allPeople = new ParseXMLUser().runParse();
-    private Person foundPerson;
+    private Person foundPerson = null;
 
 
     public boolean checkPerson(String eMail, String password) {
