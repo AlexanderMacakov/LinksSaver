@@ -1,3 +1,4 @@
+import Entity.Link;
 import Entity.Person;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -8,6 +9,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ParseXMLUser {
 
@@ -15,8 +19,10 @@ public class ParseXMLUser {
 
     }
 
-    public ArrayList<Person> runParse() {
-        ArrayList<Person> people = new ArrayList<>();
+    public Map<Person, List<Link>> runParse() {
+
+        Map<Person, List<Link>> users = new HashMap<>();
+
         try {
             File xmlFile = new File("src/Base/Users.xml");
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -43,8 +49,8 @@ public class ParseXMLUser {
                     eMail = element.getElementsByTagName("eMail").item(0).getChildNodes().item(0).getNodeValue();
                     password = element.getElementsByTagName("password").item(0).getChildNodes().item(0).getNodeValue();
 
-                    people.add(new Person(firstName, lastName, eMail, password));
-
+                    List<Link> links = new ArrayList<>();
+                    users.put(new Person(firstName, lastName, eMail, password), links);
                 }
 
             }
@@ -55,7 +61,7 @@ public class ParseXMLUser {
             e.printStackTrace();
         }
 
-        return people;
+        return users;
 
     }
 
