@@ -68,10 +68,6 @@ public class Person implements ActionUser {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", eMail='" + eMail + '\'' +
-                '}';
+        return "Пользователь: " + firstName + " " + lastName;
     }
 }
