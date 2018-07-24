@@ -4,24 +4,22 @@ import Entity.Person;
 import com.mongodb.*;
 
 import java.net.UnknownHostException;
-import java.util.Properties;
 
 public class ConnectMongo {
 
     private MongoClient mongoClient;
     private DB db;
 
-    private boolean authenticate;
 
     private DBCollection table;
 
-    public ConnectMongo(Properties prop) {
+    public ConnectMongo() {
         try {
-            mongoClient = new MongoClient(prop.getProperty("localhost"), Integer.valueOf(prop.getProperty("27017")));
+            mongoClient = new MongoClient("localhost",27017);
 
-            db = mongoClient.getDB("Users");
+            db = mongoClient.getDB("LinksSaver");
 
-            table = db.getCollection(prop.getProperty("table"));
+            table = db.getCollection("Users");
         } catch (UnknownHostException e) {
             // Если возникли проблемы при подключении сообщаем об этом
             System.err.println("Don't connect!");
@@ -40,10 +38,10 @@ public class ConnectMongo {
         table.insert(document);
     }
 
-    public Person getByPerson(String lastName) {
+    public Person getByPerson(String login) {
         BasicDBObject query = new BasicDBObject();
 
-        query.put("lastName", lastName);
+        query.put("login", login);
         DBObject rezult = table.findOne(query);
 
         Person person = new Person(String.valueOf(rezult.get("login")),

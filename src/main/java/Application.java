@@ -1,3 +1,4 @@
+import Connections.ConnectMongo;
 import Entity.Person;
 
 import java.io.BufferedReader;
@@ -9,17 +10,12 @@ public class Application {
 
     private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
+
     public static void main(String[] args) throws IOException {
-
-        Person user = null;
-
         TextMassage.tittle();
-        InputData inputData = new InputData();
+        ConnectMongo connectMongo = new ConnectMongo();
 
-        Verefication verefication = new Verefication();
-        verefication.checkPerson(inputData.getLogin(), inputData.getPassword());
-        user = verefication.getFoundPerson();
-        System.out.println(user.toString());
+        System.out.println(connectMongo.getByPerson("admin").toString());
 
     }
 
