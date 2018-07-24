@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Person implements ActionUser {
 
-
+    private String login;
     private String firstName;
     private String lastName;
     private String eMail;
@@ -17,8 +17,13 @@ public class Person implements ActionUser {
 
     }
 
-    public Person(String firstName, String lastName, String eMail, String password) {
+    public Person(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 
+    public Person(String login,String firstName, String lastName, String eMail, String password) {
+        this.login = login;
         this.firstName = firstName;
         this.lastName = lastName;
         this.eMail = eMail;
@@ -54,16 +59,40 @@ public class Person implements ActionUser {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
     }
 
-    public String geteMail() {
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEMail() {
         return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Link> getPersonListLink() {
+        return personListLink;
+    }
+
+    public void setPersonListLink(List<Link> personListLink) {
+        this.personListLink = personListLink;
     }
 
     @Override
