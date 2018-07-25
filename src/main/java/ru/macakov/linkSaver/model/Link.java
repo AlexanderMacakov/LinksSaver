@@ -1,4 +1,4 @@
-package ru.macakov.linkSaver.Entity;
+package ru.macakov.linkSaver.model;
 
 public class Link {
 
