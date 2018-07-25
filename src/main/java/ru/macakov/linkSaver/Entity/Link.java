@@ -1,4 +1,4 @@
-package Entity;
+package ru.macakov.linkSaver.Entity;
 
 public class Link {
 

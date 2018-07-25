@@ -1,6 +1,6 @@
-package Connections;
+package ru.macakov.linkSaver.Connections;
 
-import Entity.Person;
+import ru.macakov.linkSaver.Entity.Person;
 import com.mongodb.*;
 
 import java.net.UnknownHostException;

@@ -1,5 +1,4 @@
-package Entity;
-import org.springframework.beans.factory.annotation.Autowired;
+package ru.macakov.linkSaver.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

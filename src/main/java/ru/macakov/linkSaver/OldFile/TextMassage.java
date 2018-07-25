@@ -1,3 +1,5 @@
+package ru.macakov.linkSaver.OldFile;
+
 public class TextMassage {
     public static void tittle(){
         System.out.println("Link Saver");

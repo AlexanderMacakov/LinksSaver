@@ -1,6 +1,4 @@
-package Entity;
-
-import Entity.Link;
+package ru.macakov.linkSaver.Entity;
 
 public interface ActionUser {
     void read();
