@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ru.macakov.linkSaver.dao.UserDao;
 import ru.macakov.linkSaver.model.User;
 import ru.macakov.linkSaver.services.UserService;
 
@@ -16,12 +17,15 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView showAll() {
-        ModelAndView modelAndView = new ModelAndView("all");
-        modelAndView.addObject("Users", userService.getAll());
-        return modelAndView;
-    }
+
+
+
+   @RequestMapping(value = "/", method = RequestMethod.GET)
+   public ModelAndView showAll() {
+       ModelAndView modelAndView = new ModelAndView("all");
+       modelAndView.addObject("Users", userService.getAll());
+       return modelAndView;
+   }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user) {

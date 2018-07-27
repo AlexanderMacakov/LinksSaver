@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Reklama
@@ -28,7 +29,7 @@
             <td>${user.lastName}</td>
             <td>${user.eMail}</td>
             <td>${user.password}</td>
-            <td><a href="/edit?id=${user.login}">Edit</a> | <a href="/delete?id=${user.login}">Delete</a></td>
+            <td><a href="/edit?login=${user.login}">Edit</a> | <a href="/delete?login=${user.login}">Delete</a></td>
         </tr>
     </c:forEach>
     <tr>
