@@ -1,10 +1,14 @@
-package Entity;
-import org.springframework.beans.factory.annotation.Autowired;
+package ru.macakov.linkSaver.model;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person implements ActionUser {
+@Document(collection = User.COLLECTION_NAME)
+public class User {
+
+    public static final String COLLECTION_NAME = "Users";
 
     private String login;
     private String firstName;
@@ -13,16 +17,17 @@ public class Person implements ActionUser {
     private String password;
     private List <Link> personListLink = new ArrayList();
 
-    private Person() {
+
+    public User() {
 
     }
 
-    public Person(String login, String password) {
+    public User(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
-    public Person(String login,String firstName, String lastName, String eMail, String password) {
+    public User(String login,String firstName, String lastName, String eMail, String password) {
         this.login = login;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,28 +36,12 @@ public class Person implements ActionUser {
 
     }
 
-    @Override
-    public void read() {
-
+    public String getLogin() {
+        return login;
     }
 
-    @Override
-    public void addLink(Link link) {
-        personListLink.add(link);
-    }
-
-    @Override
-    public void delLink(String tittle) {
-        for (Link delLink: personListLink) {
-            if (tittle.equals(delLink.getTittle())) {
-                personListLink.remove(delLink);
-            }
-        }
-    }
-
-    @Override
-    public void editLink(Link link) {
-
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getFirstName() {
@@ -71,7 +60,7 @@ public class Person implements ActionUser {
         this.lastName = lastName;
     }
 
-    public String getEMail() {
+    public String geteMail() {
         return eMail;
     }
 
@@ -99,4 +88,6 @@ public class Person implements ActionUser {
     public String toString() {
         return "Пользователь: " + firstName + " " + lastName;
     }
+
+
 }
