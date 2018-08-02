@@ -34,9 +34,7 @@
     Создаем бин 'mongoDbFactory'.
     Если MongoDB не требует авторизации, то поля username, password можно убрать
     -->
-    <mongo:db-factory
-            dbname="${mongo.db}"
-            mongo-ref="mongo"/>
+    <mongo:db-factory dbname="${mongo.db}"/>
 
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>

@@ -7,16 +7,28 @@
 </head>
 <body>
 <form:form method="POST" action="/add" modelAttribute="user">
-    <form:hidden path="" />
     <table>
         <tr>
             <td>Login:</td>
             <td><form:input path="login" /></td>
         </tr>
         <tr>
-            <td>password</td>
+            <td>firstName</td>
+            <td><form:input path="firstName" /></td>
+        </tr>
+        <tr>
+            <td>lastName:</td>
+            <td><form:input path="lastName" /></td>
+        </tr>
+        <tr>
+            <td>eMail:</td>
+            <td><form:input path="eMail" /></td>
+        </tr>
+        <tr>
+            <td>password:</td>
             <td><form:input path="password" /></td>
         </tr>
+
         <tr>
             <td colspan="2">
                 <input type="submit" />

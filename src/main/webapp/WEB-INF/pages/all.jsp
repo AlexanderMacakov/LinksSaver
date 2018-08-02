@@ -19,7 +19,7 @@
         <td><b>Lastname</b></td>
         <td><b>E-mail</b></td>
         <td><b>password</b></td>
-        <td><b>Action</b></td>
+
 
     </tr>
     <c:forEach var="user" items="${users}">

@@ -8,7 +8,7 @@ import java.util.List;
 @Document(collection = User.COLLECTION_NAME)
 public class User {
 
-    public static final String COLLECTION_NAME = "users";
+    public static final String COLLECTION_NAME = "Users";
 
     private String login;
     private String firstName;
@@ -18,7 +18,7 @@ public class User {
     private List <Link> personListLink = new ArrayList();
 
 
-    private User() {
+    public User() {
 
     }
 
@@ -60,11 +60,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEMail() {
+    public String geteMail() {
         return eMail;
     }
 
-    public void setEMail(String eMail) {
+    public void seteMail(String eMail) {
         this.eMail = eMail;
     }
 
@@ -88,4 +88,6 @@ public class User {
     public String toString() {
         return "Пользователь: " + firstName + " " + lastName;
     }
+
+
 }

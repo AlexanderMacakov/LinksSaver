@@ -1,15 +1,17 @@
 package ru.macakov.linkSaver.dao;
 
-import com.mongodb.DBCollection;
+import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 import ru.macakov.linkSaver.model.User;
 
 import java.util.List;
 
+@Repository
 public class UserDao {
 
     @Autowired
@@ -17,11 +19,10 @@ public class UserDao {
 
 
     public void save(User user) {
-        mongoOperations.save(user);
+       mongoOperations.save(user);
     }
 
     public User get(String login) {
-        mongoOperations.getCollection("Users");
         return mongoOperations.findOne(Query.query(Criteria.where("login").is(login)), User.class);
     }
 

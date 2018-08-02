@@ -3,7 +3,7 @@ package ru.macakov.linkSaver.model;
 public class Link {
 
     private String tittle;
-    private String descrption;
+    private String description;
     private String url;
 
     public Link() {
@@ -24,12 +24,12 @@ public class Link {
         this.tittle = tittle;
     }
 
-    public String getDescrption() {
-        return descrption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrption(String descrption) {
-        this.descrption = descrption;
+    public void setDescription(String descrption) {
+        this.description = descrption;
     }
 
     public String getUrl() {
