@@ -143,6 +143,11 @@
       <artifactId>mongo-java-driver</artifactId>
       <version>3.8.0</version>
     </dependency>
+      <dependency>
+          <groupId>javaee</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>5</version>
+      </dependency>
   </dependencies>
 
   <build>

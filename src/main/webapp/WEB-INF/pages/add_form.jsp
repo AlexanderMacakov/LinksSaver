@@ -6,6 +6,7 @@
     <title>Регистрация</title>
 </head>
 <body>
+
 <form:form method="POST" action="/add" modelAttribute="user">
     <table>
         <tr>

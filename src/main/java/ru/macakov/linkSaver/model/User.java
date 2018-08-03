@@ -22,20 +22,6 @@ public class User {
 
     }
 
-    public User(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
-    public User(String login,String firstName, String lastName, String eMail, String password) {
-        this.login = login;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.eMail = eMail;
-        this.password = password;
-
-    }
-
     public String getLogin() {
         return login;
     }
@@ -80,8 +66,8 @@ public class User {
         return personListLink;
     }
 
-    public void setPersonListLink(List<Link> personListLink) {
-        this.personListLink = personListLink;
+    public void addLink(Link link) {
+        this.personListLink.add(link);
     }
 
     @Override
