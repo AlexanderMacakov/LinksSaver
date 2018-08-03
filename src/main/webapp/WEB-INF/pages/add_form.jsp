@@ -9,7 +9,7 @@
 <form:form method="POST" action="/add" modelAttribute="user">
     <table>
         <tr>
-            <td>Login:</td>
+            <td>Login</td>
             <td><form:input path="login" /></td>
         </tr>
         <tr>

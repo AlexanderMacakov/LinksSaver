@@ -23,7 +23,7 @@ public class MainController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView showAddForm(@ModelAttribute("user") User user) {
-        return new ModelAndView("add_form", "user", new User());
+        return new ModelAndView("add_form", user.getFirstName() + " " + user.getLastName(), new User());
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -35,7 +35,10 @@ public class MainController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView showEditForm(@RequestParam(required = true) String login) {
-        return new ModelAndView("add_form", "Users", userService.get(login));
+
+       User user = userService.get(login);
+        System.out.println(user);
+        return new ModelAndView("add_form", "user", userService.get(login));
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
