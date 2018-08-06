@@ -41,7 +41,7 @@ public class UserDao {
 
     }
 
-   
+
     public List<Link> getAllLink(User user) {
         return user.getPersonListLink();
     }
