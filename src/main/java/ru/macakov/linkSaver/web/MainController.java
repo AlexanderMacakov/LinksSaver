@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import ru.macakov.linkSaver.model.User;
+import ru.macakov.linkSaver.entity.User;
 import ru.macakov.linkSaver.services.UserService;
 
 @Controller
@@ -28,16 +28,12 @@ public class MainController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user) {
-        userService.add(user);
 
         return "redirect:/";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView showEditForm(@RequestParam(required = true) String login) {
-
-       User user = userService.get(login);
-        System.out.println(user);
         return new ModelAndView("add_form", "user", userService.get(login));
     }
 

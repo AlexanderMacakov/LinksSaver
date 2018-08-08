@@ -14,7 +14,6 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <version.spring>4.0.2.RELEASE</version.spring>
-    <version.spring.mongodb>1.4.0.RELEASE</version.spring.mongodb>
     <version.jackson>1.9.13</version.jackson>
   </properties>
 
@@ -45,29 +44,21 @@
       <version>${version.spring}</version>
     </dependency>
 
+    <!-- Postgresql драйвер -->
+
     <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-mongodb</artifactId>
-      <version>${version.spring.mongodb}</version>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.4.1209.jre7</version>
     </dependency>
 
-    <!-- MongoDB драйвер -->
-    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongo-java-driver</artifactId>
-      <version>2.11.4</version>
-    </dependency>
+      <!-- HikariCP -->
 
-    <!--
-    Jackson JSON Mapper
-    Тащу его всегда, когда нужно писать API на базе JSON объектов.
-    В нашем случае можете эту библиотеку не тянуть.
-    -->
-    <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>${version.jackson}</version>
-    </dependency>
+      <dependency>
+          <groupId>com.zaxxer</groupId>
+          <artifactId>HikariCP</artifactId>
+          <version>3.1.0</version>
+      </dependency>
 
     <!-- Servlet Api -->
     <dependency>
@@ -117,37 +108,21 @@
       <scope>test</scope>
     </dependency>
 
-    <!--
-    Apache Commons, тяну пратически в каждый свой проект из-за их полезности.
-    Можете также их пропустить.
-    -->
+      <!-- JavaEE -->
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.4</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-fileupload</groupId>
-      <artifactId>commons-fileupload</artifactId>
-      <version>1.3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongo-java-driver</artifactId>
-      <version>3.8.0</version>
-    </dependency>
-      <dependency>
           <groupId>javaee</groupId>
           <artifactId>javaee-api</artifactId>
           <version>5</version>
-      </dependency>
+    </dependency>
+
+      <!-- Lombook -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.2</version>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
