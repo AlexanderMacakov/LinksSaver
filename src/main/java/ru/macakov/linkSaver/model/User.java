@@ -1,10 +1,12 @@
 package ru.macakov.linkSaver.model;
 
+import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Document(collection = User.COLLECTION_NAME)
 public class User {
 
@@ -16,78 +18,6 @@ public class User {
     private String eMail;
     private String password;
     private List <Link> personListLink = new ArrayList();
-
-
-    public User() {
-
-    }
-
-    public User(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
-    public User(String login,String firstName, String lastName, String eMail, String password) {
-        this.login = login;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.eMail = eMail;
-        this.password = password;
-
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String geteMail() {
-        return eMail;
-    }
-
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Link> getPersonListLink() {
-        return personListLink;
-    }
-
-    public void setPersonListLink(List<Link> personListLink) {
-        this.personListLink = personListLink;
-    }
-
-    @Override
-    public String toString() {
-        return "Пользователь: " + firstName + " " + lastName;
-    }
 
 
 }

@@ -1,7 +1,5 @@
 package ru.macakov.linkSaver.dao;
 
-import com.mongodb.*;
-import com.mongodb.client.MongoCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -13,6 +11,8 @@ import java.util.List;
 
 @Repository
 public class UserDao {
+
+//todo изменить подключение к базе через HikariCP к PostgresSQL
 
     @Autowired
     private MongoOperations mongoOperations;
