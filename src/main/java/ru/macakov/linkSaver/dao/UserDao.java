@@ -9,7 +9,8 @@ import java.util.List;
 @Repository
 public class UserDao {
 
-//todo изменить подключение к базе через HikariCP к PostgresSQL
+//todo 1) сделать коннект к базе чере JDBC
+//todo 2) изменить подключение к базе через HikariCP к PostgresSQL
 
 
     public void save(User user) {
