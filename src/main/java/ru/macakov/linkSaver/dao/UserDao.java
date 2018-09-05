@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.macakov.linkSaver.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -18,10 +19,13 @@ public class UserDao {
     }
 
     public User get(String login) {
+        //заглушка
+        return new User();
     }
 
     public List<User> getAll() {
-
+        //заглушка
+        return new ArrayList<>();
     }
 
     public void remove(String login) {
