@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.macakov.linkSaver.dao.UserDao;
 import ru.macakov.linkSaver.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -32,7 +33,7 @@ public class UserService {
         userDao.remove(login);
     }
 
-    public List<User> getAll() {
+    public List<User> getAll() throws SQLException {
         return userDao.getAll();
     }
 

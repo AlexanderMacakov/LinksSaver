@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.macakov.linkSaver.model.User;
 import ru.macakov.linkSaver.services.UserService;
 
+import java.sql.SQLException;
+
 @Controller
 public class MainController {
 
@@ -14,7 +16,7 @@ public class MainController {
     private UserService userService;
 
    @RequestMapping(value = "/", method = RequestMethod.GET)
-   public ModelAndView showAll() {
+   public ModelAndView showAll() throws SQLException {
        ModelAndView modelAndView = new ModelAndView("all");
        modelAndView.addObject("users", userService.getAll());
        return modelAndView;
