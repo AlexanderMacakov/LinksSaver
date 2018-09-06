@@ -16,16 +16,16 @@ public class UserService {
     private UserDao userDao;
 
 
-    public void add(User user) {
+    public void add(User user) throws SQLException {
         userDao.save(user);
     }
 
-    public void update(User user) {
+    public void update(User user) throws SQLException {
         userDao.save(user);
     }
 
 
-    public User get(String login) {
+    public User get(String login) throws SQLException {
         return userDao.get(login);
     }
 

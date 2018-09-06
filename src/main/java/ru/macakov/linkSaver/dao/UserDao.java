@@ -21,8 +21,18 @@ public class UserDao {
 
 //todo 2) изменить подключение к базе через HikariCP к PostgresSQL
 
+    public static void main(String[] args) {
+        try {
+            UserDao userDao = new UserDao();
+            userDao.getAll()
+        } catch (SQLException e) {
+            System.err.println("ошибка");
+            e.printStackTrace();
+        }
 
-   public Connection connect() {
+    }
+
+   private Connection connect() {
        Connection connection = null;
        Properties properties = new Properties();
 
@@ -41,12 +51,47 @@ public class UserDao {
    }
 
 
-    public void save(User user) {
-
+    public void save(User user) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connect().prepareStatement("insert into users (login, firstname, lastname, email, password) values (?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getFirstName());
+            preparedStatement.setString(3, user.getLastName());
+            preparedStatement.setString(4, user.getEMail());
+            preparedStatement.setString(5, user.getPassword());
+            preparedStatement.execute();
+            System.out.println("Новый пользователь добавлен в БД");
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+            System.err.println("Ошибка при сохранении!");
+        }finally {
+            preparedStatement.close();
+        }
     }
 
-    public User get(String login)  {
-        return new User();
+    public User get(String login) throws SQLException {
+        Statement statement = connect().createStatement();
+        ResultSet resultSet = null;
+        User user = new User();
+        try {
+            resultSet = statement.executeQuery("select * from users where id = 2");
+            user.setLogin(resultSet.getString(2));
+            user.setFirstName(resultSet.getString(3));
+            user.setLastName(resultSet.getString(4));
+            user.setEMail(resultSet.getString(5));
+            user.setPassword(resultSet.getString(6));
+        } catch (SQLException ex) {
+            System.err.println("ошибка");
+            ex.printStackTrace();
+        } finally {
+            if (resultSet != null)
+                resultSet.close();
+            else {
+                System.err.println("Ошибка чтения данных с БД!");
+            }
+            return user;
+        }
     }
 
     public List<User> getAll() throws SQLException{

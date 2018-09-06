@@ -14,7 +14,7 @@ public class User {
     private String lastName;
     private String eMail;
     private String password;
-    private List <Link> personListLink = new ArrayList();
+    private List <Link> personListLink = null;
 
 
 }

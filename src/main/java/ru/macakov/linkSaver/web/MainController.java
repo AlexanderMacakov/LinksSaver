@@ -29,14 +29,14 @@ public class MainController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("user") User user) {
+    public String addUser(@ModelAttribute("user") User user) throws SQLException {
         userService.add(user);
 
         return "redirect:/";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public ModelAndView showEditForm(@RequestParam(required = true) String login) {
+    public ModelAndView showEditForm(@RequestParam(required = true) String login) throws SQLException {
         return new ModelAndView("add_form", "Users", userService.get(login));
     }
 
