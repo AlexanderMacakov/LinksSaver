@@ -20,7 +20,7 @@ public class UserDao {
 
 
 //todo 2) изменить подключение к базе через HikariCP к PostgresSQL
-    
+
 
    public Connection connect() {
        Connection connection = null;
@@ -66,6 +66,13 @@ public class UserDao {
             }
         } catch (SQLException ex) {
             ex.getErrorCode();
+        }
+        finally {
+            if (resultSet != null)
+            resultSet.close();
+            else  {
+                System.err.println("Ошибка чтения данных с БД!");
+            }
         }
 
         return users;
