@@ -19,18 +19,9 @@ public class UserDao {
     String sslfactory = "org.postgresql.ssl.NonValidatingFactory";
 
 
-//todo 2) изменить подключение к базе через HikariCP к PostgresSQL
+//todo 2) изменить подключение к базе через HikariCP к PostgreSQL
 
-    public static void main(String[] args) {
-        try {
-            UserDao userDao = new UserDao();
-            userDao.getAll()
-        } catch (SQLException e) {
-            System.err.println("ошибка");
-            e.printStackTrace();
-        }
 
-    }
 
    private Connection connect() {
        Connection connection = null;
@@ -74,16 +65,22 @@ public class UserDao {
         Statement statement = connect().createStatement();
         ResultSet resultSet = null;
         User user = new User();
+        String sql = "select * from users where login = '" + login + "'";
         try {
-            resultSet = statement.executeQuery("select * from users where id = 2");
-            user.setLogin(resultSet.getString(2));
-            user.setFirstName(resultSet.getString(3));
-            user.setLastName(resultSet.getString(4));
-            user.setEMail(resultSet.getString(5));
-            user.setPassword(resultSet.getString(6));
+            resultSet = statement.executeQuery(sql);
+            if (resultSet != null) {
+                resultSet.next();
+                user.setLogin(resultSet.getString(2));
+                user.setFirstName(resultSet.getString(3));
+                user.setLastName(resultSet.getString(4));
+                user.setEMail(resultSet.getString(5));
+                user.setPassword(resultSet.getString(6));
+            }
         } catch (SQLException ex) {
-            System.err.println("ошибка");
+            System.err.println("ошибка в выборке");
             ex.printStackTrace();
+            ex.getErrorCode();
+            ex.getMessage();
         } finally {
             if (resultSet != null)
                 resultSet.close();
