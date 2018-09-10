@@ -9,14 +9,21 @@
     <!-- Включаем контекстные аннотации типа @Service, @Controller, @Repository... -->
     <context:annotation-config/>
 
+    <!--
+    Указываем Springу пакет, в котором он будет искать классы,
+    помеченные аннотациями @Service, @Repository, и создавать их бины, но исключать он будет @Controller,
+    т.к. эти классы нам нужны будут в другом месте.
+    -->
     <context:component-scan base-package="ru.macakov.linkSaver">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <!--
-    Загружает properties файл в конфигурацию Spring
+    Загружает properties файл в конфигурацию Spring (т.е. сюда).
+    Переменные из файла можно будет использовать как ${mongo.host} (пример см. ниже)
     -->
     <context:property-placeholder location="classpath:database.properties"/>
+
 
 
 </beans>

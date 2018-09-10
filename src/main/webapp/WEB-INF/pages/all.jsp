@@ -27,7 +27,7 @@
             <td>${user.login}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
-            <td>${user.eMail}</td>
+            <td>${user.EMail}</td>
             <td>${user.password}</td>
             <td><a href="/edit?login=${user.login}">Edit</a> | <a href="/delete?login=${user.login}">Delete</a></td>
         </tr>

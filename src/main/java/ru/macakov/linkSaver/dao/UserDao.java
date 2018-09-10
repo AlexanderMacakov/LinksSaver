@@ -1,6 +1,8 @@
 package ru.macakov.linkSaver.dao;
 
+
 import org.springframework.stereotype.Repository;
+import ru.macakov.linkSaver.model.Link;
 import ru.macakov.linkSaver.model.User;
 
 import java.sql.*;
@@ -17,27 +19,6 @@ public class UserDao {
     String ssl = "true";
     String sslfactory = "org.postgresql.ssl.NonValidatingFactory";
 
-
-//todo 2) изменить подключение к базе через HikariCP к PostgreSQL
-
-
-   private Connection connect() {
-       Connection connection = null;
-       Properties properties = new Properties();
-
-       properties.setProperty("user", username);
-       properties.setProperty("password", pass);
-       properties.setProperty("ssl", ssl);
-       properties.setProperty("sslfactory", sslfactory);
-
-       try {
-           connection = DriverManager.getConnection(url,properties);
-           System.out.println("connect postgreSQL server successful!!!");
-       } catch (SQLException e) {
-           System.out.println(e.getMessage());
-       }
-       return connection;
-   }
 
 
     public void save(User user) throws SQLException {
@@ -88,7 +69,7 @@ public class UserDao {
         }
     }
 
-    public List<User> getAll() throws SQLException{
+    public List<User> getAll() throws SQLException {
         Statement statement = connect().createStatement();
         ResultSet resultSet = null;
         List<User> users = new ArrayList();
@@ -108,7 +89,7 @@ public class UserDao {
         }
         finally {
             if (resultSet != null)
-            resultSet.close();
+                resultSet.close();
             else  {
                 System.err.println("Ошибка чтения данных с БД!");
             }
@@ -119,8 +100,8 @@ public class UserDao {
 
     public void remove(String login) {
         try {
-           Statement statement = connect().createStatement();
-           statement.executeUpdate("delete from users where login = '" + login + "'");
+            Statement statement = connect().createStatement();
+            statement.executeUpdate("delete from users where login = '" + login + "'");
             System.out.println("Пользователь " + login + " удален");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -128,4 +109,30 @@ public class UserDao {
         }
     }
 
+    public void addLink(User user,Link link) {
+
+    }
+
+
+    public List<Link> getAllLink(User user) {
+        return user.getPersonListLink();
+    }
+
+    private Connection connect() {
+        Connection connection = null;
+        Properties properties = new Properties();
+
+        properties.setProperty("user", username);
+        properties.setProperty("password", pass);
+        properties.setProperty("ssl", ssl);
+        properties.setProperty("sslfactory", sslfactory);
+
+        try {
+            connection = DriverManager.getConnection(url,properties);
+            System.out.println("connect postgreSQL server successful!!!");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return connection;
+    }
 }

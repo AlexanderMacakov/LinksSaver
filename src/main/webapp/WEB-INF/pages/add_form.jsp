@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>eMail:</td>
-            <td><form:input path="eMail" /></td>
+            <td><form:input path="EMail" /></td>
         </tr>
         <tr>
             <td>password:</td>
