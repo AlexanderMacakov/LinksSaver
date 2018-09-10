@@ -29,7 +29,7 @@ public class UserService {
         return userDao.get(login);
     }
 
-    public void remote(String login) {
+    public void remove(String login) {
         userDao.remove(login);
     }
 

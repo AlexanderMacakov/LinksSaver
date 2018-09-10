@@ -20,7 +20,11 @@ public class UserDao {
 
 
 //todo 2) изменить подключение к базе через HikariCP к PostgreSQL
+public static void main(String[] args) {
+    UserDao userDao = new UserDao();
+    userDao.remove("skifcha");
 
+}
 
 
    private Connection connect() {
@@ -65,9 +69,8 @@ public class UserDao {
         Statement statement = connect().createStatement();
         ResultSet resultSet = null;
         User user = new User();
-        String sql = "select * from users where login = '" + login + "'";
         try {
-            resultSet = statement.executeQuery(sql);
+            resultSet = statement.executeQuery("select * from users where login = '" + login + "'");
             if (resultSet != null) {
                 resultSet.next();
                 user.setLogin(resultSet.getString(2));
@@ -121,7 +124,14 @@ public class UserDao {
     }
 
     public void remove(String login) {
-
+        try {
+           Statement statement = connect().createStatement();
+           statement.executeUpdate("delete from users where login = '" + login + "'");
+            System.out.println("Пользователь " + login + " удален");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Ошибка при удалении");
+        }
     }
 
 }

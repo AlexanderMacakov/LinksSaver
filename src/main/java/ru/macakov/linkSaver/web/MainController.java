@@ -42,7 +42,7 @@ public class MainController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteUser(@RequestParam(required = true) String login) {
-        userService.remote(login);
+        userService.remove(login);
         return "redirect:/";
     }
 
