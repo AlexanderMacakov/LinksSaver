@@ -7,14 +7,18 @@ import org.hibernate.cfg.Configuration;
 import ru.macakov.linkSaver.entity.Link;
 import ru.macakov.linkSaver.entity.Person;
 
+import java.util.Map;
+
 public class HibernateSessionFactoryUtil {
     private static SessionFactory sessionFactory;
+
 
     private HibernateSessionFactoryUtil() {
 
     }
 
     public static SessionFactory getSessionFactory() {
+
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();

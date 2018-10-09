@@ -1,14 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<hibernate-configuration xmlns="http://www.hibernate.org/xsd/hibernate-configuration">
-<session-factory name="java:hibernate/SessionFactory"><!-- Name is Optional -->
+        <!DOCTYPE hibernate-configuration PUBLIC
+                "-//Hibernate/Hibernate Configuration DTD//EN"
+                "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+<session-factory>
+
 
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.sslmode">require</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://ec2-54-217-236-201.eu-west-1.compute.amazonaws.com:5432/d3a7rkf8gu48r7</property>
-        <property name="hibernate.connection.username">lsklzbqitivrms</property>
-        <property name="hibernate.connection.password">f4403afeff5ec7f09b14c63db85d2b611ef993ba2c7865e475d68e85a3f159ca</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">admin</property>
 
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="show_sql">true</property>
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
 </session-factory>
+
 </hibernate-configuration>

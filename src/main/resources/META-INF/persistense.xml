@@ -1,0 +1,20 @@
+<properties>
+    <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-54-217-236-201.eu-west-1.compute.amazonaws.com:5432/d3a7rkf8gu48r7?username=lsklzbqitivrms&amp;password=f4403afeff5ec7f09b14c63db85d2b611ef993ba2c7865e475d68e85a3f159ca&amp;ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/>
+    <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+    <property name="hibernate.connection.username" value="lsklzbqitivrms"/>
+    <property name="hibernate.connection.password" value="f4403afeff5ec7f09b14c63db85d2b611ef993ba2c7865e475d68e85a3f159ca"/>
+    <property name="hibernate.archive.autodetection" value="class"/>
+    <property name="hibernate.show_sql" value="true"/>
+    <property name="hibernate.format_sql" value="true"/>
+    <property name="hbm2ddl.auto" value="update"/>
+
+    <!-- c3p0 connection pool settings -->
+    <property name="hibernate.connection.provider_class" value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider" />
+    <property name="hibernate.c3p0.min_size" value="1" />
+    <property name="hibernate.c3p0.max_size" value="5" />
+    <property name="hibernate.c3p0.acquire_increment" value="1" />
+    <property name="hibernate.c3p0.idle_test_period" value="3000" />
+    <property name="hibernate.c3p0.max_statements" value="50" />
+    <property name="hibernate.c3p0.timeout" value="1800" />
+
+</properties>

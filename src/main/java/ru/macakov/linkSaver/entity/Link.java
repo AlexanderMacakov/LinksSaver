@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Link {
 
     @Column(name = "id")
+    @Id
     private int id;
 
     @Column(name = "title")

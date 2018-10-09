@@ -1,6 +1,7 @@
 package ru.macakov.linkSaver.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -38,6 +39,7 @@ public class Person {
         this.login = login;
         this.password = password;
         this.email = email;
+        links= new ArrayList<>();
     }
 
     public void addLink (Link link) {
