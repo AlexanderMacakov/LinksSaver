@@ -45,4 +45,5 @@ public interface PersonDao {
      * @return
      */
     List<Person> findAll();
+
 }

@@ -5,7 +5,6 @@ import org.hibernate.Transaction;
 import ru.macakov.linkSaver.entity.Link;
 import ru.macakov.linkSaver.entity.Person;
 import ru.macakov.linkSaver.utils.HibernateSessionFactoryUtil;
-
 import java.util.List;
 
 public class PersonDaoImpl implements PersonDao {
@@ -49,7 +48,10 @@ public class PersonDaoImpl implements PersonDao {
 
     @Override
     public List<Person> findAll() {
-        List<Person> persons = (List<Person>) HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        return persons;
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        List<Person> personList = session.createCriteria(Person.class).list();
+        return personList;
     }
+
+
 }
