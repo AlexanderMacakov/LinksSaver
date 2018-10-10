@@ -28,7 +28,7 @@ public class Person {
     private String last_name;
 
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "person", cascade=CascadeType.ALL, orphanRemoval = true)
     private List<Link> links;
 
     public Person() {
@@ -103,16 +103,4 @@ public class Person {
         this.links = links;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", links=" + links +
-                '}';
-    }
 }

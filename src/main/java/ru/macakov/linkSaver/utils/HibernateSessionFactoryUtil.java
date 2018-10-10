@@ -10,6 +10,7 @@ import ru.macakov.linkSaver.entity.Person;
 import java.util.Map;
 
 public class HibernateSessionFactoryUtil {
+
     private static SessionFactory sessionFactory;
 
 

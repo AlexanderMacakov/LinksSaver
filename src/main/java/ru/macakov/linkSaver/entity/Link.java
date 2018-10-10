@@ -6,8 +6,9 @@ import javax.persistence.*;
 @Table(name = "link")
 public class Link {
 
-    @Column(name = "id")
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "title")
@@ -70,13 +71,4 @@ public class Link {
         this.person = person;
     }
 
-    @Override
-    public String toString() {
-        return "Link{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", person=" + person +
-                '}';
-    }
 }

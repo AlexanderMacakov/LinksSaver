@@ -27,9 +27,9 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public void update(Person person) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+        Transaction tx1 = session.beginTransaction();
         session.update(person);
-        transaction.commit();
+        tx1.commit();
         session.close();
     }
 
